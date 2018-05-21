@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/bomb.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/crate.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/explosiveBarrel.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/floor2.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/floor3.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/floor4.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/Floor.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/powerup_bomb.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/powerup_fire.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/powerup_speed.png</File>
+    <File>/media/glauz/Metis/Projects/Programming/Monogame/BomberDudeV2/BomberDudeV2/Content/default.spritefont</File>
+  </SourceFiles>
+</SourceFileCollection>

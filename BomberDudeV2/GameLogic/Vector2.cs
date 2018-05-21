@@ -1,0 +1,21 @@
+﻿//using System;
+//namespace RamilH.Framework
+//{
+//	public class Vector2
+//	{
+//		public float X { get; set; }
+//		public float Y { get; set; }
+
+//		public Vector2(){}
+
+//		public Vector2(float x, float y)
+//		{
+//			this.X = x;
+//			this.Y = y;
+//		}
+
+//		public void Zero() { X = 0f; Y = 0f; }
+
+//		public void Change(float x, float y) { X = x; Y = y; }
+//	}
+//}
