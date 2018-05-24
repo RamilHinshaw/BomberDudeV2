@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,16 +17,28 @@ namespace BomberDudeV2
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		private Texture2D test;
-		private SpriteFont font;
+		public static float delta;
 
-		private int zoomModifier = 1;
+
+
+		//GameObject TEST
+		GameObject crate;
+
+
+		private Texture2D test;
+		private Texture2D tex_crate;
+		private SpriteFont font;
 
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
+
+			//Resolution Option and Fullscreen
+			graphics.IsFullScreen = false;
+			graphics.PreferredBackBufferWidth = 1280;
+			graphics.PreferredBackBufferHeight = 720;
 		}
 
 		/// <summary>
@@ -38,6 +50,9 @@ namespace BomberDudeV2
 		protected override void Initialize()
 		{
 			// TODO: Add your initialization logic here
+
+			crate = new GameObject("crate1", new Transform(), new Sprite(tex_crate, new Vector2(32, 32) ));
+
 
 			base.Initialize();
 		}
@@ -52,6 +67,7 @@ namespace BomberDudeV2
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 
+			tex_crate = Content.Load<Texture2D>("crate");
 			test = Content.Load<Texture2D>("explosiveBarrel");
 			font = Content.Load<SpriteFont>("default");
 
@@ -72,23 +88,27 @@ namespace BomberDudeV2
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 #endif
+			delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 			// TODO: Add your update logic here
 
 
+			//Horizontal
+			if (Input.GetKey(Keys.Left)) Camera.Position.X++;
+			if (Input.GetKey(Keys.Right)) Camera.Position.X--;
 
-			//DEBUG ZOOM TEST
-			//KeyboardState state = Keyboard.GetState();
-			//if (state.IsKeyDown(Keys.Left)) zoomModifier++;
-			//if (state.IsKeyDown(Keys.Right)) zoomModifier--;
+			//Vertical
+			if (Input.GetKey(Keys.Up)) Camera.Position.Y++;
+			if (Input.GetKey(Keys.Down)) Camera.Position.Y--;
 
-			if (Input.GetKeyDown(Keys.Left)) zoomModifier++;
-			if (Input.GetKeyDown(Keys.Right)) zoomModifier--;
-			//if (Input.GetKey(Keys.Left)) zoomModifier++;
-
+			//Zoom
+			if (Input.GetKey(Keys.Z)) Camera.Position.Z++;
+			if (Input.GetKey(Keys.X)) Camera.Position.Z--;
 
 
 
+
+			Input.End();	//MUST CALL THIS at the End
 			base.Update(gameTime);
 		}
 
@@ -107,11 +127,39 @@ namespace BomberDudeV2
 			  null, null, null, null);
 
 
-			spriteBatch.Draw(test, new Rectangle(0, 0, 32 * zoomModifier  , 32 * zoomModifier), Color.White);
+			//spriteBatch.Draw(test, new Rectangle(0 - (int)Camera.Position.X, 0 - (int)Camera.Position.Y,
+			//							 32 + (int)Camera.Position.Z, 32 + (int)Camera.Position.Z),
+			//							 Camera.Tint);
 
-			spriteBatch.DrawString(font, "Test String!", new Vector2(100, 100), Color.Black);
 
 
+
+
+			//Test
+			Sprite sprite = crate.GetComponent<Sprite>();
+			Texture2D texture = sprite.texture;
+			Transform transform = crate.GetComponent<Transform>();
+			Vector2 spriteSize = sprite.size;
+
+			float sizeCalcX = (spriteSize.X * transform.Scale.X) + (int)Camera.Position.Z ;
+			float sizeCalcY = (spriteSize.Y * transform.Scale.Y) + (int)Camera.Position.Z;
+
+			float posCalcX = transform.Position.X - (int)Camera.Position.X;
+			float posCalcY = transform.Position.Y - (int)Camera.Position.Y;
+
+			Point size = new Point( (int) sizeCalcX, (int) sizeCalcY);
+			Point pos = new Point((int)posCalcX, (int)posCalcY);
+
+			Debug.WriteLine(sizeCalcX);
+			Debug.WriteLine(sizeCalcY);
+
+			spriteBatch.Draw(tex_crate, new Rectangle( pos, size), Camera.Tint);
+
+			spriteBatch.DrawString(font, "SizeX: " + sizeCalcX + 
+			                       		"\nSizeY: " + sizeCalcY +
+			                       		"\nPosX: " + posCalcX +
+			                       		"\nPosY: " + posCalcY 
+			                       , new Vector2( 800, 20), Color.Black);
 
 
 			spriteBatch.End();

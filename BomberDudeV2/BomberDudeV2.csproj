@@ -46,11 +46,12 @@
     <Compile Include="GameLogic\GameObject.cs" />
     <Compile Include="GameLogic\ObjectPool.cs" />
     <Compile Include="GameLogic\Sprite.cs" />
-    <Compile Include="GameLogic\SpriteRenderer.cs" />
     <Compile Include="GameLogic\Transform.cs" />
     <Compile Include="GameLogic\Vector2.cs" />
     <Compile Include="GameLogic\InputManager.cs" />
     <Compile Include="GameLogic\Input.cs" />
+    <Compile Include="GameLogic\Camera.cs" />
+    <Compile Include="GameLogic\GraphicsSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

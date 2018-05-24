@@ -1,31 +1,40 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RamilH.ECS;
 //using Microsoft.Xna.Framework.Content.;
 
 namespace RamilH.Framework
 {
-	public class Sprite
+	public class Sprite : Component
 	{
 		public bool isSpriteSheet = false;
-		private Texture2D sprite;
+		public Texture2D texture;
+		public Vector2 size { get; set; }   //Width & Height in pixels
 
-		public Sprite(Texture2D texture)
+		public Sprite() { }
+		public Sprite(Texture2D texture, Vector2 msize)
 		{
-			
+
 			//Load Sprite To MonoGame Here ...
-			sprite = LoadTexture(texture);
-
+			this.texture = texture;
+			this.size = msize;
 
 		}
 
-		public Sprite(Texture2D texture, bool isSpriteSheet) {}
+		public Sprite(Texture2D texture, Vector2 size, bool isSpriteSheet) {}
 
 
-		private Texture2D LoadTexture(Texture2D texture)
+		public void SetSprite(Texture2D texture, Vector2 size)
 		{
-			return null;
+			this.texture = texture;
+			this.size = size;
 		}
+
+		//private Texture2D LoadTexture(Texture2D texture)
+		//{
+		//	return null;
+		//}
 
 
 		//For SpriteSheets

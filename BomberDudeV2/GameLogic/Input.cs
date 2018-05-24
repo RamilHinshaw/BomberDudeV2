@@ -8,7 +8,7 @@ namespace RamilH.Framework
 	{
 		static private KeyboardState CurrentKeyboardState = Keyboard.GetState();
 		static private KeyboardState PreviousKeyboardState = Keyboard.GetState();
-		static private Keys previousKey;
+		//static private Keys previousKey;
 
 		public static void GetButton(string InputReference) { }
 		public static void GetButtonUp(string InputReference) { }
@@ -30,7 +30,7 @@ namespace RamilH.Framework
 
 			buttonState = (CurrentKeyboardState.IsKeyUp(key) && PreviousKeyboardState.IsKeyDown(key)) ? true : false;
 
-			UpdatePrevState();
+			//UpdatePrevState();
 
 			return buttonState;
 		}
@@ -43,7 +43,7 @@ namespace RamilH.Framework
 
 			buttonState = (CurrentKeyboardState.IsKeyDown(key) && PreviousKeyboardState.IsKeyUp(key) )? true : false;
 
-			UpdatePrevState();
+			//UpdatePrevState();
 
 			return buttonState;
 		}
@@ -63,6 +63,9 @@ namespace RamilH.Framework
 		//private static void InitializeKeyInstance()
 
 		//For Multiple Controller Types Here
+
+		//CALL THIS AS LAST INPUT
+		public static void End() { UpdatePrevState(); }
 
 		private static void UpdateCurrentState()
 		{
