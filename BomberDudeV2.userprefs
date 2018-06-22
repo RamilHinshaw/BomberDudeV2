@@ -1,17 +1,7 @@
 ﻿<Properties StartupConfiguration="{51BD28B6-4B23-42C2-8040-9C23A740A2D2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="BomberDudeV2/ECS/Entity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BomberDudeV2/Game1.cs">
     <Files>
-      <File FileName="BomberDudeV2/GameLogic/Input.cs" Line="27" Column="4" />
-      <File FileName="BomberDudeV2/GameLogic/SpriteRenderer.cs" Line="1" Column="1" />
-      <File FileName="BomberDudeV2/GameLogic/Camera.cs" Line="17" Column="1" />
-      <File FileName="BomberDudeV2/Game1.cs" Line="58" Column="4" />
-      <File FileName="BomberDudeV2/GameLogic/Sprite.cs" Line="14" Column="3" />
-      <File FileName="BomberDudeV2/GameLogic/GameObject.cs" Line="22" Column="40" />
-      <File FileName="BomberDudeV2/ECS/EntityManager.cs" Line="37" Column="52" />
-      <File FileName="BomberDudeV2/GameLogic/GraphicsSystem.cs" Line="1" Column="1" />
-      <File FileName="BomberDudeV2/GameLogic/Transform.cs" Line="6" Column="2" />
-      <File FileName="BomberDudeV2/GameLogic/Vector2.cs" Line="21" Column="5" />
-      <File FileName="BomberDudeV2/ECS/Entity.cs" Line="52" Column="4" />
+      <File FileName="BomberDudeV2/Game1.cs" Line="69" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
